@@ -11,6 +11,10 @@ App simulando uma ONG que trabalha com adoção de animais, em especial, cachorr
 - Hive
 - Dio
 
+## Figma 📚
+
+https://www.figma.com/file/4uUHrRpszQDQYCIu2gqjU0/🐶-PetHero?node-id=0%3A1
+
 ## Como Rodar? 🔧
 ```
 flutter pub get
