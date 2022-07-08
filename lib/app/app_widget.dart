@@ -42,8 +42,10 @@ class _AppWidgetState extends State<AppWidget> {
               debugShowCheckedModeBanner: false,
               title: 'Pet Hero',
               builder: (context, child) {
+                final ThemeData theme = Theme.of(context);
                 return SafeArea(
                   child: Scaffold(
+                    backgroundColor: theme.backgroundColor,
                     body: child,
                   ),
                 );

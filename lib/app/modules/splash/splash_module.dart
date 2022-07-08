@@ -16,6 +16,8 @@ class SplashModule extends Module {
         ),
         Bind(
           (i) => InitializeUsecase(
+            animalStore: i(),
+            networkInfo: i(),
             userStore: i(),
           ),
         ),

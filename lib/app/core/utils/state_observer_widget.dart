@@ -130,19 +130,21 @@ class OnFailureWidgetDefault extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            '😱 Ops...',
-            textAlign: TextAlign.center,
-            style: theme.textTheme.headline6,
-          ),
-          const SizedBox(height: 16),
-          Text(
             failureMessage,
             textAlign: TextAlign.center,
             style: theme.textTheme.subtitle1,
           ),
           const SizedBox(height: 8),
           TextButton(
-            child: const Text('Tentar novamente'),
+            style: TextButton.styleFrom(
+              backgroundColor: theme.primaryColor,
+            ),
+            child: Text(
+              'Tentar novamente',
+              style: TextStyle(
+                color: theme.canvasColor,
+              ),
+            ),
             onPressed: onTapTryAgain,
           ),
         ],

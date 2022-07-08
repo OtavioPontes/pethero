@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:equatable/equatable.dart';
 
 class User extends Equatable {
@@ -9,5 +11,15 @@ class User extends Equatable {
   });
 
   @override
-  List<Object?> get props => [email, nome];
+  List<Object> get props => [email, nome];
+
+  User copyWith({
+    String? email,
+    String? nome,
+  }) {
+    return User(
+      email: email ?? this.email,
+      nome: nome ?? this.nome,
+    );
+  }
 }

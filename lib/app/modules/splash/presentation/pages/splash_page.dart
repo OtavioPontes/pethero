@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pethero/app/core/extensions/screen_extension.dart';
 import 'package:pethero/app/core/style/assets.dart';
 import 'package:pethero/app/core/utils/appinfo.dart';
+import 'package:pethero/app/core/utils/state_observer_widget.dart';
 import 'package:pethero/app/modules/splash/presentation/controllers/splash_controller.dart';
 
 class SplashPage extends StatefulWidget {
@@ -55,8 +56,15 @@ class _SplashPageState extends State<SplashPage> {
             alignment: Alignment.bottomCenter,
             child: Column(
               children: [
-                CircularProgressIndicator(color: theme.colorScheme.onPrimary),
-                SizedBox(height: 64.scale),
+                StateObserver(
+                  stateStore: controller,
+                  onSuccess: (context) => const SizedBox(),
+                  onFailure: (context) => OnFailureWidgetDefault(
+                    failureMessage: 'Sem Internet',
+                    onTapTryAgain: () => controller.pipeline(),
+                  ),
+                ),
+                SizedBox(height: 32.scale),
                 Text(
                   'Rescue a Pet',
                   style: theme.textTheme.bodyText2,

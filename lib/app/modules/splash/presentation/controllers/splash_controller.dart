@@ -36,14 +36,21 @@ abstract class _SplashControllerBase extends StateStore with Store {
 
   Future<void> _init() async {
     appName = _appInfo.packageInfo.appName;
+    await Future.delayed(const Duration(seconds: 3));
     unawaited(pipeline());
   }
 
   @override
   Future<void> pipeline([BuildContext? context]) async {
     setControlState(ControlState.loading);
+    await Future.delayed(const Duration(seconds: 1));
     appVersion = _appInfo.packageInfo.version;
-    await handleUseCase(_initializeUsecase);
-    setControlState(ControlState.success);
+    final result = await _initializeUsecase(const NoParams());
+    result.fold((failure) {
+      setControlState(ControlState.failure(failure.message));
+    }, (success) {
+      setControlState(ControlState.success);
+      return success;
+    });
   }
 }
