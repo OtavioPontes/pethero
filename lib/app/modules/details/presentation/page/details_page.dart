@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -99,6 +98,7 @@ class DetailsPage extends StatelessWidget {
                             right: 16.scale,
                           ),
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -186,32 +186,23 @@ class DetailsPage extends StatelessWidget {
                                 ],
                               ),
                               SizedBox(height: 16.scale),
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Flexible(
-                                    child: Text(
-                                      'Temperamento:',
-                                      style: theme.textTheme.headline6!.merge(
-                                        TextStyle(
-                                          color: theme.colorScheme.onBackground,
-                                        ),
-                                      ),
-                                    ),
+                              Text(
+                                'Temperamento:',
+                                style: theme.textTheme.headline6!.merge(
+                                  TextStyle(
+                                    color: theme.colorScheme.onBackground,
                                   ),
-                                  SizedBox(width: 4.scale),
-                                  Flexible(
-                                    child: Text(
-                                      animal.temperament,
-                                      style: theme.textTheme.headline6!.merge(
-                                        TextStyle(
-                                          fontWeight: FontWeight.w300,
-                                          color: theme.colorScheme.onBackground,
-                                        ),
-                                      ),
-                                    ),
+                                ),
+                              ),
+                              SizedBox(height: 4.scale),
+                              Text(
+                                animal.temperament,
+                                style: theme.textTheme.headline6!.merge(
+                                  TextStyle(
+                                    fontWeight: FontWeight.w300,
+                                    color: theme.colorScheme.onBackground,
                                   ),
-                                ],
+                                ),
                               ),
                             ],
                           ),
@@ -233,12 +224,14 @@ class DetailsPage extends StatelessWidget {
               decoration: BoxDecoration(
                 color: theme.canvasColor,
                 shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: NetworkImage(
-                    animal.imageUrl!,
-                  ),
-                  fit: BoxFit.contain,
-                ),
+                image: animal.imageUrl != null
+                    ? DecorationImage(
+                        image: NetworkImage(
+                          animal.imageUrl!,
+                        ),
+                        fit: BoxFit.contain,
+                      )
+                    : null,
               ),
             ),
           ),

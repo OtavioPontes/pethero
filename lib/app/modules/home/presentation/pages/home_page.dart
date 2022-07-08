@@ -7,6 +7,7 @@ import 'package:pethero/app/core/extensions/screen_extension.dart';
 import 'package:pethero/app/core/stores/user_store.dart';
 import 'package:pethero/app/modules/details/details_module.dart';
 import 'package:pethero/app/modules/home/presentation/controllers/home_controller.dart';
+import 'package:pethero/app/modules/home/presentation/widgets/card_pet.dart';
 import 'package:pethero/app/modules/home/submodules/cats/cats_module.dart';
 import 'package:pethero/app/modules/home/submodules/dogs/dogs_module.dart';
 
@@ -175,63 +176,14 @@ class HomePage extends StatelessWidget {
                         vertical: 8.scale,
                       ),
                       child: InkWell(
-                        onTap: () => Modular.to.pushNamed(
-                          DetailsModule.routeName,
-                          arguments: {
-                            'animal': animal,
-                            'hasIcon': false,
-                          },
-                        ),
-                        child: Card(
-                          color: theme.canvasColor,
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 16.scale,
-                              vertical: 16.scale,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                CircleAvatar(
-                                  radius: 40,
-                                  backgroundColor: theme.backgroundColor,
-                                  backgroundImage: animal.imageUrl != null
-                                      ? NetworkImage(animal.imageUrl!)
-                                      : null,
-                                ),
-                                SizedBox(width: 16.scale),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        animal.name,
-                                        style: theme.textTheme.bodyText1!.merge(
-                                          TextStyle(
-                                            color: theme.primaryColor,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(height: 8.scale),
-                                      Text(
-                                        'Peso: ${animal.weight} kg',
-                                        style: theme.textTheme.caption,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons.arrow_forward_ios,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
+                          onTap: () => Modular.to.pushNamed(
+                                DetailsModule.routeName,
+                                arguments: {
+                                  'animal': animal,
+                                  'hasIcon': false,
+                                },
+                              ),
+                          child: CardPet(animal: animal)),
                     );
                   },
                 ),
