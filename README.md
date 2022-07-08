@@ -1,16 +1,22 @@
-# pethero
+# App Pet Hero 🐶
 
-A new Flutter project.
+App simulando uma ONG que trabalha com adoção de animais, em especial, cachorros e gatos.
 
-## Getting Started
+## Techs Utilizadas: 💻
 
-This project is a starting point for a Flutter application.
+- Flutter/Dart
+- Flutter Modular
+- Clean Arch
+- Mobx
+- Hive
+- Dio
 
-A few resources to get you started if this is your first Flutter project:
+## Como Rodar? 🔧
+```
+flutter pub get
+flutter pub run build_runner build --delete-conflicting-outputs
+```
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Screenshots 🎨
+<img height="400" src="https://user-images.githubusercontent.com/39846965/178055238-97d23e77-340b-46c5-a6cf-5423e5faf736.png"><img height="400" src="https://user-images.githubusercontent.com/39846965/178055220-7373524c-e15c-4080-9adc-b251a4abbd1d.png"><img height="400" src="https://user-images.githubusercontent.com/39846965/178055225-72de86d7-19c0-4c1c-9190-8944698c5c25.png"><img height="400" src="https://user-images.githubusercontent.com/39846965/178055230-db8cb455-8764-4734-94af-c2319e0bfa45.png">
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
